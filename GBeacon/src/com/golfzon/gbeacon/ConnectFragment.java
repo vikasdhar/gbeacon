@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ConnectFragment extends Fragment implements OnClickListener
@@ -60,6 +61,13 @@ public class ConnectFragment extends Fragment implements OnClickListener
         getActivity().registerReceiver( m_Receiver , filterFinished );
 
         m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        
+		if ( m_BluetoothAdapter == null )
+		{
+			Toast.makeText( getActivity() , "Bluetooth is not available" , Toast.LENGTH_LONG ).show();
+			
+			return v;
+		}
         
         // Get a set of currently paired devices
         Set<BluetoothDevice> pairedDevices = m_BluetoothAdapter.getBondedDevices();
