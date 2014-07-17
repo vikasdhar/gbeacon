@@ -12,6 +12,7 @@
     <string name="none_found">No devices found</string>
     <string name="none_paired">No devices have been paired</string>
     <string name="menu_main_text">Main</string>
+    <string name="menu_scan_text">Scan</string>
     <string name="menu_connect_text">Connect</string>
     
 </resources>

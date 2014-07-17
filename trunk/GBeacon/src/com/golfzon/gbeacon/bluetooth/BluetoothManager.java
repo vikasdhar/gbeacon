@@ -15,6 +15,7 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 public class BluetoothManager
 {
@@ -50,6 +51,11 @@ public class BluetoothManager
 		m_Handler = handler;
 		
 		m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		
+		if ( m_BluetoothAdapter == null )
+		{
+			Toast.makeText( m_Activity , "Bluetooth is not available" , Toast.LENGTH_LONG ).show();
+		}
 	}
 
 	// 블루투스 지원 여부 체크
@@ -66,7 +72,7 @@ public class BluetoothManager
 	// 기기의 플루투스를 켜기
 	public void EnableBluetooth()
 	{
-		if ( m_BluetoothAdapter.isEnabled() == false )
+		if ( ( m_BluetoothAdapter != null ) && m_BluetoothAdapter.isEnabled() == false )
 		{
 			Log.d( RTTI , "Request to enable Bluetooth" );
 			
