@@ -55,10 +55,9 @@ public class ConnectFragment extends Fragment implements OnClickListener
         // Register for broadcasts when a device is discovered
         IntentFilter filterDiscovered = new IntentFilter( BluetoothDevice.ACTION_FOUND );
         getActivity().registerReceiver( m_Receiver , filterDiscovered );
-
         // Register for broadcasts when discovery has finished
         IntentFilter filterFinished = new IntentFilter( BluetoothAdapter.ACTION_DISCOVERY_FINISHED );
-        getActivity().registerReceiver( m_Receiver , filterFinished );
+//        getActivity().registerReceiver( m_Receiver , filterFinished );
 
         m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         
